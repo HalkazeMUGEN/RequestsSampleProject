@@ -1,0 +1,27 @@
+﻿<Window x:Class="RequestsSampleProject.ui.sort.SortScriptsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:sort="clr-namespace:RequestsSampleProject.ui.sort"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        d:DataContext="{d:DesignInstance Type=sort:SortScriptsWindowViewModel}"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:dd="urn:gong-wpf-dragdrop"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="400" Width="200">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding ClosedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <ListBox
+            Margin="0"
+            ItemsSource="{Binding Scripts}"
+            DisplayMemberPath="DisplayName"
+            dd:DragDrop.IsDragSource="True"
+            dd:DragDrop.IsDropTarget="True"/>
+    </Grid>
+</Window>

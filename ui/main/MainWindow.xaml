@@ -1,0 +1,188 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:av="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:RequestsSampleProject.ui.main"
+        av:DataContext="{av:DesignInstance Type=viewmodels:MainWindowViewModel}"
+        mc:Ignorable="av"
+        x:Class="RequestsSampleProject.ui.main.MainWindow"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="350" Width="525" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Column="0" TextWrapping="NoWrap" Text="NewAsmProject" VerticalAlignment="Center" Padding="0,2,0,2" Margin="6,2,2,2"/>
+                    <Button Grid.Column="1" Content="新規作成" Padding="15,2,15,2" Margin="2,2,3,2" VerticalAlignment="Center"/>
+                </Grid>
+
+                <ComboBox Margin="6,2,3,2" Grid.Row="1" VerticalAlignment="Center"/>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Column="0" Padding="6" Margin="6,2,2,2" VerticalAlignment="Center" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}">
+                        <TextBlock Text="モード&#10;切替" TextAlignment="Center"/>
+                    </Button>
+                    <Button Grid.Column="1" Content="アセンブル" Margin="2,2,3,2"/>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Margin="6,2,2,2" Text="アドレス：" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Margin="2,2,3,2" Text="4B4000" VerticalAlignment="Center" HorizontalContentAlignment="Right"/>
+                </Grid>
+
+                <ScrollViewer Grid.Row="4" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock  Grid.Column="0" Text="1&#10;2&#10;3&#10;4&#10;5&#10;6&#10;7&#10;8&#10;9&#10;10" FontSize="14pt" Foreground="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" TextAlignment="Right"/>
+                        <Border  BorderThickness="1,0,0,0" Grid.Column="1">
+                            <Border.BorderBrush>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Rectangle Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}" Stroke="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" StrokeDashArray="1"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.BorderBrush>
+                        </Border>
+                        <TextBox Grid.Column="1" AcceptsReturn="True" AcceptsTab="True" Text="NOP&#10;NOP&#10;NOP&#10;NOP&#10;NOP&#10;NOP&#10;NOP&#10;NOP&#10;NOP&#10;NOP" FontSize="14pt" TextAlignment="Left" Foreground="#FF72077C"/>
+                    </Grid>
+                </ScrollViewer>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="1" Content="フォント" Padding="8,2,8,2" Margin="2,2,3,2"/>
+                    <Button Grid.Column="2" Content="設定" Padding="8,2,8,2" Margin="3,2,6,2" MinWidth="{Binding ActualWidth, ElementName=button, Mode=OneWay}" />
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <ComboBox Grid.Column="0" Margin="3,2,3,2" VerticalAlignment="Center" ItemsSource="{Binding Scripts, Mode=OneWay}" DisplayMemberPath="DisplayName" SelectedIndex="0"/>
+                    <Button x:Name="button" Grid.Column="1" Content="並べ替え" Padding="2,0,2,0" Margin="3,2,6,2" Command="{Binding SortCommand}"/>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="0" Content="ファイルを開く" Padding="2,25,2,25" Margin="3,2,3,2"/>
+                    <Button Grid.Column="1" Content="フォルダ" Padding="2,0,2,0" Margin="3,2,6,2" MinWidth="{Binding ActualWidth, ElementName=button, Mode=OneWay}"/>
+                </Grid>
+
+                <Border Grid.Row="3" Margin="3,2,6,0" BorderThickness="1,1,1,1" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+                    <DataGrid CanUserReorderColumns="False" CanUserSortColumns="False" IsReadOnly="True" AutoGenerateColumns="False" HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="行" Width="Auto"/>
+                            <DataGridTextColumn Header="アドレス" Width="Auto"/>
+                            <DataGridTextColumn Header="バイト列" Width="100"/>
+                            <DataGridTextColumn Header="オペコード" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Right" TextWrapping="NoWrap" Text="10 bytes" VerticalAlignment="Bottom" Grid.Column="0" Background="{x:Null}" Margin="5,0,5,0"/>
+            <TextBlock HorizontalAlignment="Right" TextWrapping="NoWrap" Text="0 ms | 0 bytes" VerticalAlignment="Bottom" Grid.Column="1" Background="{x:Null}" Margin="5,0,5,0"/>
+        </Grid>
+
+
+    </Grid>
+
+</Window>
